@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "zhendongwang blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zD98/blog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "ZhendongWang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zD98/blog/issues"
+  },
+  "homepage": "https://github.com/zD98/blog#readme",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.2.0"
+  }
+}
