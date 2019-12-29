@@ -4,7 +4,8 @@
   "description": "zhendongwang blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vuepress dev"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/zD98/blog#readme",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.2.0"
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "vuepress": "^1.2.0"
   }
 }
