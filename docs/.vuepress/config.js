@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/blog/",
   title: "ZhendongWang's Blog",
   description: "Just playing around",
   plugins: ["@vuepress/back-to-top"],
