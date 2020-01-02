@@ -2,18 +2,6 @@
 
 > 本文默认读者对 React Hooks 已经有一定的了解。 因此不再赘述 Hooks API 的使用了, 还未了解的同学可以去官网阅读[React Hooks API Reference](https://reactjs.org/docs/hooks-reference.html)
 
-1. 上手使用
-2. 遇到问题
-3. React Hooks 源码分析
-4. 函数式组件的思想
-5. 抽象封装 Hooks
-
-这篇文章的目的是什么?
-
-1. 了解 Hooks 原理, 减少使用 Hooks 开发时的 BUG
-2. 如何抽象合适的 Hooks
-3. 如何书写具有可读性的 React 函数组件
-
 ## React Hooks 基础
 
 使用 React Hooks 就不得不提到 React 函数组件。
@@ -64,6 +52,22 @@ function Header(props) {
 ![小小的眼睛装满了大大的疑惑.jpg](./lironghao.jpg)
 
 如果想从根源上填上这个坑, 大概是需要阅读源码了解 Hooks 的基础实现的[Github 源码链接](https://github.com/facebook/react/blob/d259f458133865757c0d18895d537f14908f0a5b/packages/react-reconciler/src/ReactFiberHooks.js#L142)。
+
+下面是`Hook`的type定义
+``` typescript
+export type Hook = {
+  // 数据
+  memoizedState: any,
+  // 下面这些暂时不需要了解
+  baseState: any,
+  baseQueue: Update<any, any> | null,
+  queue: UpdateQueue<any, any> | null,
+  // 链表下一个节点的指针
+  next: Hook | null,
+};
+```
+我们需要了解的是`Hook`是通过`链表`存储的
+![](./link.png)
 
 本文尝试通过流程图来简述下这里的逻辑。(下面的流程图是不完整的!没有对比依赖更新)
 
@@ -137,6 +141,8 @@ function Demo(props) {
 }
 ```
 
+![](./demo3.gif)
+
 在Gift图中, 在更新Step步长时, 计数第一次仍然是`+1`, 随后才会`+2`。
 1. 在`step`更新时, `useEffect`的`count`没有变化, 所以没有触发更新
 2. `useEffect`触发时, 使用的是Hook中暂存的数据, 所以步长`step`仍然是1.
@@ -151,9 +157,12 @@ function Demo(props) {
 本文只是提到了`useState`, `useEffect`这两例典型的React Hooks。
 
 以`useState`为例, 我们了解了`React Hooks`是如何解决函数组件内无法保留内部数据的问题。
+
 以`useEffect`为例, 我们呢了解了`React Hooks`如何处理在`数据->视图`之间一些`时机`的处理
 
 以及很浅显的提到了`Hook`中的数据暂存(快照)的原因
+
+React Hooks还有很多种用法, 本章只是梳理React Hooks的一些基本概念。
 
 下一章会着重于《如何在业务中梳理重组封装自己的Hooks》
 
