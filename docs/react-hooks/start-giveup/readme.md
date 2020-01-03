@@ -147,8 +147,14 @@ function Demo(props) {
 1. 在`step`更新时, `useEffect`的`count`没有变化, 所以没有触发更新
 2. `useEffect`触发时, 使用的是Hook中暂存的数据, 所以步长`step`仍然是1.
 
-所以, 
-函数组件的流程认知要**Update**下
+我们在Hook加载流程上补充上对比的过程。
+
+![](./fiber2.png)
+
+Hook中存入的是上一次渲染后的快照值, 所以在执行时, 也会使用上一次渲染留下来的值。
+
+到这里, 我们概括下函数组件的渲染流程
+
 ![](./flow.png)
 
 
@@ -165,6 +171,10 @@ function Demo(props) {
 React Hooks还有很多种用法, 本章只是梳理React Hooks的一些基本概念。
 
 下一章会着重于《如何在业务中梳理重组封装自己的Hooks》
+
+### 4. 参考Reference
+
+[React Hook 解析 - 风吹老了好少年的文章 - 知乎](https://zhuanlan.zhihu.com/p/91935584)
 
 ## Hooks 的合理使用
 
