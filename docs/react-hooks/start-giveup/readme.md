@@ -359,6 +359,7 @@ export function useCount() {
 ```
 我们使用`useCount`这个封装的Hook, 提供了数据->`count`, 操作->`startCount`, 内部使用`useEffect`封装了使用`setTimeout`倒计时的逻辑。
 
+[![Edit vigilant-morning-ziv71](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vigilant-morning-ziv71?fontsize=14&hidenavigation=1&theme=dark)
 ![](./method/count.png)
 
 ### 总结
